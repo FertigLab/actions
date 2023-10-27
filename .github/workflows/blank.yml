@@ -23,7 +23,3 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
       - uses: actions/checkout@v3
-          r-version: release
-          http-user-agent: release
-          use-public-rspm: true
-
