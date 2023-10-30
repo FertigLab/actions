@@ -14,4 +14,4 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   r-lib-check:
-    uses: r-lib/actions/.github/workflows/check-standard.yaml@main
+    uses: r-lib/actions/.github/workflows/check-standard.yaml@v2
