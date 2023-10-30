@@ -1,4 +1,4 @@
-[![R build status](https://github.com/FertigLab/actions/workflows/call/badge.svg)](https://github.com/FertigLab/actions/actions?workflow=call)
+[![R build status](https://github.com/FertigLab/actions/workflows/call-example/badge.svg)](https://github.com/FertigLab/actions/actions?workflow=call-example)
 
 ## Actions mock package
 
