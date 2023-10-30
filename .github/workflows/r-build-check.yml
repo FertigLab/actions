@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: R-build-check
+name: r-build-check
 
 # Controls when the workflow will run
 on:
