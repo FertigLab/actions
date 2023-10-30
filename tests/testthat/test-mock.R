@@ -5,5 +5,5 @@ test_that("mock test 1",{
 })
 
 test_that("mock test 2",{
-  expect_equal(x, mock("x"))
+  expect_equal("x", mock("x"))
 })
