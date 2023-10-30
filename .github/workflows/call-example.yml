@@ -1,3 +1,4 @@
+# Shows how the r-build-check.yml can be called from another repository.
 name: call
 on:
     push:
