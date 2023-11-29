@@ -3,6 +3,7 @@ name: call-example
 on:
     push:
         branches: ['main']
+    workflow_dispatch:
 
 jobs:
     build-check:
