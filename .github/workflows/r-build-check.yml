@@ -1,5 +1,9 @@
 # Based on Github basic workflow and r-lib actions
 name: r-build-check
+inputs:
+  chargs:
+    description: 'check args to pass on'
+    default: 'c("--no-manual", "--as-cran")'
 
 on:
   workflow_call:
@@ -38,4 +42,4 @@ jobs:
       - name: Check
         uses: r-lib/actions/check-r-package@v2
         with:
-          args: 'c("--no-manual")'
+          args: chargs
