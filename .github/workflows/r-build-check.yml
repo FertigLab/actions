@@ -6,14 +6,14 @@ on:
       chargs:
         type: string
         description: 'check args to pass on'
-        default: 'c("--no-manual", "--as-cran")'
+        default: 'c("--no-manual")'
 
   workflow_dispatch:
       inputs:
         chargs:
           type: string
           description: 'check args to pass on'
-          default: 'c("--no-manual", "--as-cran")'
+          default: 'c("--no-manual")'
 
 jobs:
   r-build-check:
