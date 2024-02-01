@@ -9,6 +9,11 @@ on:
         default: 'c("--no-manual", "--as-cran")'
 
   workflow_dispatch:
+      inputs:
+        chargs:
+          type: string
+          description: 'check args to pass on'
+          default: 'c("--no-manual", "--as-cran")'
 
 jobs:
   r-build-check:
