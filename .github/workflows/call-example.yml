@@ -8,6 +8,4 @@ on:
 jobs:
     build-check:
         uses: FertigLab/actions/.github/workflows/r-build-check.yml@v1
-        with:
-            chargs: 'c("--no-manual")'
         
