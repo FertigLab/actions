@@ -1,5 +1,5 @@
 # Based on Github basic workflow and r-lib actions - without --as-cran check
-name: r-build-check
+name: r-build-check-2
 on:
   workflow_call:
     inputs:
