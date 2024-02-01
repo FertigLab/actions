@@ -1,12 +1,12 @@
 # Based on Github basic workflow and r-lib actions
 name: r-build-check
-inputs:
-  chargs:
-    description: 'check args to pass on'
-    default: 'c("--no-manual", "--as-cran")'
-
 on:
   workflow_call:
+    inputs:
+      chargs:
+        type: string
+        description: 'check args to pass on'
+        default: 'c("--no-manual", "--as-cran")'
 
   workflow_dispatch:
 
@@ -22,7 +22,6 @@ jobs:
           - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
-
 
     steps:
       - name: Checkout
