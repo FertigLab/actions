@@ -7,9 +7,9 @@ on:
         type: string
         description: 'check args to pass on'
         default: 'c("--no-manual")'
-      r_devel:
+      r_string:
         type: string
-        default: 'false'
+        default: 'release'
 
   workflow_dispatch:
     inputs:
@@ -17,27 +17,19 @@ on:
         type: string
         description: 'check args to pass on'
         default: 'c("--no-manual")'
-      r_devel:
+      r_string:
         type: string
-        default: 'false'
+        default: 'release'
 
 jobs:  
   define_matrix:
     runs-on: ubuntu-latest
-
     outputs:
-      r: ${{ steps.colors.outputs.r }}
-
+      r: ${{ steps.choose-r.outputs.r }}
     steps:
-      - name: R release and devel
+      - name: choose-r
         run: |
-          echo 'r=["release", "devel"]' >> "$GITHUB_OUTPUT"
-        if: ${{inputs.r_devel == 'true'}}
-
-      - name: R release
-        run: |
-          echo 'r=["release"]' >> "$GITHUB_OUTPUT"
-        if: ${{inputs.r_devel == 'false'}}
+          echo 'r=[${{inputs.r_string}}]' >> "$GITHUB_OUTPUT"
 
   r-build-check:
     needs: define_matrix
