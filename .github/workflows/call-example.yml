@@ -1,8 +1,8 @@
 # Shows how the r-build-check.yml can be called from another repository.
 name: call-example
 on:
-    push:
-        branches: ['main']
+#    push:
+#        branches: ['main']
     workflow_dispatch:
 
 jobs:
