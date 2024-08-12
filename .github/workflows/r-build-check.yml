@@ -7,9 +7,8 @@ on:
         type: string
         description: 'check args to pass on'
         default: 'c("--no-manual")'
-      use_devel:
+      r_devel:
         type: string
-        description: "build with r-devel"
         default: 'false'
 
   workflow_dispatch:
@@ -18,12 +17,28 @@ on:
         type: string
         description: 'check args to pass on'
         default: 'c("--no-manual")'
-      use_devel:
+      r_devel:
         type: string
-        description: "build with r-devel"
         default: 'false'
 
 jobs:  
+  define_matrix:
+    runs-on: ubuntu-latest
+
+    outputs:
+      colors: ${{ steps.colors.outputs.colors }}
+
+    steps:
+      - name: R release and devel
+        run: |
+          echo 'r=["release", "devel"]' >> "$GITHUB_OUTPUT"
+        if: ${{inputs.r_devel == 'true'}}
+
+      - name: R release
+        run: |
+          echo 'r=["release"]' >> "$GITHUB_OUTPUT"
+        if: ${{inputs.r_devel == 'false'}}
+
   r-build-check:
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.os }} (${{ matrix.r }})
@@ -31,9 +46,7 @@ jobs:
       fail-fast: false
       matrix:
           os: [macos-latest, windows-latest, ubuntu-latest]
-          r: ['release', 'devel']
-          exclude:
-            - r: 'devel'
+          r: ${{ fromJSON(needs.define_matrix.outputs.r) }}
               
     steps:      
       - name: Configure git
