@@ -22,7 +22,7 @@ on:
         default: '"release"'
 
 jobs:  
-  define_matrix:
+  define-matrix:
     runs-on: ubuntu-latest
     outputs:
       r: ${{ steps.chr.outputs.r }}
@@ -33,7 +33,7 @@ jobs:
           echo 'r=[${{inputs.r_string}}]' >> "$GITHUB_OUTPUT"
 
   r-build-check:
-    needs: define_matrix
+    needs: define-matrix
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.os }} (${{ matrix.r }})
     strategy:
