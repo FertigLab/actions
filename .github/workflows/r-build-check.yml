@@ -25,7 +25,6 @@ on:
 
 jobs:  
   r-build-check:
-
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.os }} (${{ matrix.r }})
     strategy:
@@ -33,9 +32,6 @@ jobs:
       matrix:
           os: [macos-latest, windows-latest, ubuntu-latest]
           r: ['release']
-          include: 
-            - if: ${{inputs.use_devel == 'true'}}
-              r: 'devel'
               
     steps:      
       - name: Configure git
