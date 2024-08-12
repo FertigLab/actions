@@ -28,6 +28,7 @@ jobs:
       r: ${{ steps.choose-r.outputs.r }}
     steps:
       - name: choose-r
+      - id: choose-r
         run: |
           echo 'r=[${{inputs.r_string}}]' >> "$GITHUB_OUTPUT"
 
