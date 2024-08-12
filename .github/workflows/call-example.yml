@@ -7,5 +7,5 @@ on:
 
 jobs:
     build-check:
-        uses: FertigLab/actions/.github/workflows/r-build-check.yml@latest
+        uses: FertigLab/actions/.github/workflows/r-build-check.yml@v1.3.0
         
