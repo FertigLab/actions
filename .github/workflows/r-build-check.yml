@@ -31,7 +31,9 @@ jobs:
       fail-fast: false
       matrix:
           os: [macos-latest, windows-latest, ubuntu-latest]
-          r: ['release']
+          r: ['release', 'devel']
+          exclude:
+            - r: 'devel'
               
     steps:      
       - name: Configure git
