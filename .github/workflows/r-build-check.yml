@@ -25,10 +25,10 @@ jobs:
   define_matrix:
     runs-on: ubuntu-latest
     outputs:
-      r: ${{ steps.choose-r.outputs.r }}
+      r: ${{ steps.chr.outputs.r }}
     steps:
       - name: choose-r
-      - id: choose-r
+      - id: chr
         run: |
           echo 'r=[${{inputs.r_string}}]' >> "$GITHUB_OUTPUT"
 
