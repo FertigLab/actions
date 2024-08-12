@@ -7,6 +7,10 @@ on:
         type: string
         description: 'check args to pass on'
         default: 'c("--no-manual")'
+      use_devel:
+        type: string
+        description: "build with r-devel"
+        default: 'false'
 
   workflow_dispatch:
     inputs:
@@ -15,9 +19,12 @@ on:
         description: 'check args to pass on'
         default: 'c("--no-manual")'
       use_devel:
-        type: bool
+        type: string
         description: "build with r-devel"
-        default: false
+        default: 'false'
+        options:
+          - 'true'
+          - 'false'
 
 jobs:  
   r-build-check:
@@ -30,7 +37,7 @@ jobs:
           os: [macos-latest, windows-latest, ubuntu-latest]
           r: ['release']
           include: 
-            - if: inputs.use_devel
+            - if: ${{inputs.use_devel == 'true'}}
               r: 'devel'
               
     steps:      
