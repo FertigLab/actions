@@ -26,14 +26,12 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      r: ${{ steps.colors.outputs.colors }}
+      r: ${{ steps.colors.outputs.r }}
 
     steps:
       - name: R release and devel
         run: |
-          echo $(openssl rand -hex 8) >> "$GITHUB_OUTPUT"
           echo 'r=["release", "devel"]' >> "$GITHUB_OUTPUT"
-          echo $(openssl rand -hex 8) >> "$GITHUB_OUTPUT"
         if: ${{inputs.r_devel == 'true'}}
 
       - name: R release
