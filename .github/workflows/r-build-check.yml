@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      colors: ${{ steps.colors.outputs.colors }}
+      r: ${{ steps.colors.outputs.colors }}
 
     steps:
       - name: R release and devel
