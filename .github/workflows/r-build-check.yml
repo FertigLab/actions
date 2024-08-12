@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: choose-r
         run: |
-          echo 'r=[${{inputs.r_string}}]' >> "$GITHUB_OUTPUT"
+          echo 'r=[\"${{inputs.r_string}}\"]' >> "$GITHUB_OUTPUT"
 
   r-build-check:
     needs: define_matrix
