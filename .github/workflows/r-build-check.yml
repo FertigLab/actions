@@ -9,7 +9,7 @@ on:
         default: 'c("--no-manual")'
       r_string:
         type: string
-        default: 'release'
+        default: '"release"'
 
   workflow_dispatch:
     inputs:
@@ -19,7 +19,7 @@ on:
         default: 'c("--no-manual")'
       r_string:
         type: string
-        default: 'release'
+        default: '"release"'
 
 jobs:  
   define_matrix:
@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: choose-r
         run: |
-          echo 'r=["${{inputs.r_string}}"]' >> "$GITHUB_OUTPUT"
+          echo 'r=[${{inputs.r_string}}]' >> "$GITHUB_OUTPUT"
 
   r-build-check:
     needs: define_matrix
