@@ -40,6 +40,7 @@ jobs:
         if: ${{inputs.r_devel == 'false'}}
 
   r-build-check:
+    needs: define_matrix
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.os }} (${{ matrix.r }})
     strategy:
